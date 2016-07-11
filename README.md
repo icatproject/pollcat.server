@@ -22,4 +22,3 @@ Files:
 * pollcat.py     - The script that pollcatd will call.
 * pollcatd       - Use this file to start, stop and check the status of the
                    PollCAT script eg. ./pollcatd status
-
