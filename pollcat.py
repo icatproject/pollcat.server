@@ -64,9 +64,9 @@ def updateDownloadRequest(preparedId, downloadId):
     r = requests.put(
         url=config.get('main', 'TOPCAT_URL') + '/topcat/admin/download/' + str(downloadId) + '/status',
         params={
-            'icatUrl'   : config.get('main', 'ICAT_URL'), 
-            'sessionId' : icatclient.getInstance().sessionId,
-            'value'     : 'COMPLETE'
+            'facilityName'   : config.get('main', 'FACILITY_NAME'), 
+            'sessionId'      : icatclient.getInstance().sessionId,
+            'value'          : 'COMPLETE'
         },
         headers={"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
     )
@@ -81,11 +81,11 @@ def getDownloadRequests():
     response = requests.get(
         url=config.get('main', 'TOPCAT_URL') + '/topcat/admin/downloads',
         params={
-            'icatUrl'     : config.get('main', 'ICAT_URL'), 
-            'sessionId'   : icatclient.getInstance().sessionId,
-            'queryOffset' : "where download.transport = '" + config.get('main', 'PLUGIN_NAME') + 
-                            "' and download.isDeleted = false and download.status = " +
-                            "org.icatproject.topcat.domain.DownloadStatus.RESTORING"
+            'facilityName' : config.get('main', 'FACILITY_NAME'), 
+            'sessionId'    : icatclient.getInstance().sessionId,
+            'queryOffset'  : "where download.transport = '" + config.get('main', 'PLUGIN_NAME') + 
+                             "' and download.isDeleted = false and download.status = " +
+                             "org.icatproject.topcat.domain.DownloadStatus.RESTORING"
         }
     )
     downloadrequests = json.loads(response.text)
