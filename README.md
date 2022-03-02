@@ -1,5 +1,6 @@
 PollCAT
 =======
+**Deprecated project. Made redundant by Pollcat repo on ral-facilities.**
 
 PollCAT is a small bit of glue logic that moves data requested via TopCATv2
 into users home directories, ready for Globus Online Transfers.
